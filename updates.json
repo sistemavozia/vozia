@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "vozia@vozia.app": {
+      "updates": [
+        {
+          "version": "1.0.1",
+          "update_link": "https://sistemavozia.github.io/vozia/vozia.xpi"
+        }
+      ]
+    }
+  }
+}
