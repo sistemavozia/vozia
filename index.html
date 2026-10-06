@@ -34,6 +34,18 @@
 </div>
 <script>
   if (!/firefox/i.test(navigator.userAgent)) document.getElementById('aviso').style.display = 'block';
+  // aberta pelo botão "Procurar atualização" da extensão (?atualizar=1.0.X): vira tela de
+  // atualizar. O Firefox só instala o .xpi com o clique da pessoa num link desta página
+  var v = new URLSearchParams(location.search).get('atualizar');
+  if (v && /^[\d.]+$/.test(v)) {
+    document.title = 'Atualizar o VOZIA';
+    document.querySelector('h1').textContent = 'Atualizar o VOZIA';
+    document.querySelector('p').textContent = 'Versão ' + v + ' disponível. Clique no botão e depois em Adicionar — seus dados continuam.';
+    var a = document.querySelector('a.btn');
+    a.textContent = 'Atualizar para a versão ' + v;
+    a.href = 'vozia.xpi?v=' + v;
+    document.querySelector('ol').style.display = 'none';
+  }
 </script>
 </body>
 </html>
